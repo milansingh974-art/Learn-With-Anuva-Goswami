@@ -150,35 +150,68 @@ form.addEventListener('submit', function(e){
     }).catch(()=>alert("Oops! There was a problem submitting the form."));
 });
 </script>
-<h2>Free Fire Headshot Sensitivity Tool</h2>
+<h2>Free Fire Pro Headshot Sensitivity Tool</h2>
 
-<input id="phone" placeholder="Enter Phone Model">
+<label>Phone Brand:</label>
+<select id="brand">
+<option>Poco</option>
+<option>Redmi</option>
+<option>Realme</option>
+<option>Samsung</option>
+<option>Vivo</option>
+<option>Oppo</option>
+</select>
 
-<button onclick="findSensi()">Get Sensitivity</button>
+<br><br>
 
-<p id="result"></p>
+<label>RAM:</label>
+<select id="ram">
+<option>4GB</option>
+<option>6GB</option>
+<option>8GB</option>
+<option>12GB</option>
+</select>
+
+<br><br>
+
+<button onclick="getSensi()">Get Best Sensitivity</button>
+
+<h3 id="result"></h3>
 
 <script>
-function findSensi(){
 
-let phone = document.getElementById("phone").value.toLowerCase();
+function getSensi(){
 
-if(phone.includes("poco")){
-document.getElementById("result").innerHTML =
-"General 97 | Red Dot 94 | 2x 88 | 4x 80 | AWM 60 | DPI 450";
+let ram = document.getElementById("ram").value;
+
+let general, red, scope2, scope4, awm, dpi;
+
+if(ram=="4GB"){
+general=95; red=90; scope2=85; scope4=75; awm=50; dpi=400;
 }
 
-else if(phone.includes("redmi")){
-document.getElementById("result").innerHTML =
-"General 96 | Red Dot 92 | 2x 86 | 4x 78 | AWM 55 | DPI 420";
+else if(ram=="6GB"){
+general=96; red=92; scope2=86; scope4=78; awm=55; dpi=420;
+}
+
+else if(ram=="8GB"){
+general=97; red=94; scope2=88; scope4=80; awm=58; dpi=450;
 }
 
 else{
-document.getElementById("result").innerHTML =
-"General 95 | Red Dot 90 | 2x 85 | 4x 75 | AWM 50 | DPI 400";
+general=98; red=95; scope2=90; scope4=82; awm=60; dpi=480;
 }
 
+document.getElementById("result").innerHTML =
+"General: "+general+"<br>"+
+"Red Dot: "+red+"<br>"+
+"2x Scope: "+scope2+"<br>"+
+"4x Scope: "+scope4+"<br>"+
+"AWM Scope: "+awm+"<br>"+
+"DPI: "+dpi;
+
 }
+
 </script>
 </body>
 </html>
