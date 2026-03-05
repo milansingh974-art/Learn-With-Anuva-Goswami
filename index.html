@@ -150,6 +150,35 @@ form.addEventListener('submit', function(e){
     }).catch(()=>alert("Oops! There was a problem submitting the form."));
 });
 </script>
+<h2>Free Fire Headshot Sensitivity Tool</h2>
 
+<input id="phone" placeholder="Enter Phone Model">
+
+<button onclick="findSensi()">Get Sensitivity</button>
+
+<p id="result"></p>
+
+<script>
+function findSensi(){
+
+let phone = document.getElementById("phone").value.toLowerCase();
+
+if(phone.includes("poco")){
+document.getElementById("result").innerHTML =
+"General 97 | Red Dot 94 | 2x 88 | 4x 80 | AWM 60 | DPI 450";
+}
+
+else if(phone.includes("redmi")){
+document.getElementById("result").innerHTML =
+"General 96 | Red Dot 92 | 2x 86 | 4x 78 | AWM 55 | DPI 420";
+}
+
+else{
+document.getElementById("result").innerHTML =
+"General 95 | Red Dot 90 | 2x 85 | 4x 75 | AWM 50 | DPI 400";
+}
+
+}
+</script>
 </body>
 </html>
